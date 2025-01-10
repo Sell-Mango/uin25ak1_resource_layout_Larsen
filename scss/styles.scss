@@ -37,10 +37,16 @@ nav {
         color: $white-clr;
         text-align: center;
         flex-grow: 1;
+        cursor: pointer;
     }
 }
 
 article {
     background-color: $white-clr;
     padding: 1rem;
+}
+
+.tab_active {
+    background-color: $white-clr;
+    color: $primary-clr;
 }

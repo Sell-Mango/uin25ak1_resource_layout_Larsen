@@ -25,9 +25,15 @@ nav li {
   color: #ffffff;
   text-align: center;
   flex-grow: 1;
+  cursor: pointer;
 }
 
 article {
   background-color: #ffffff;
   padding: 1rem;
+}
+
+.tab_active {
+  background-color: #ffffff;
+  color: #2A324B;
 }/*# sourceMappingURL=styles.css.map */
