@@ -9,11 +9,12 @@ document.getElementsByTagName("ul")[0].innerHTML = nav.join('');
 const domTabs = document.querySelectorAll(".tab")
 currentTab = domTabs[0];
 domArticle.innerHTML = getResource(resources, currentTab);
+toggleTab(0)
 
 domTabs.forEach((tab, index) => {
     tab.addEventListener("click", event => {
         console.log(tab.classList)
-        toggleTab(event.target, index);
+        toggleTab(index);
        currentTab = domTabs[index]
        domArticle.innerHTML = getResource(resources, currentTab);
     
@@ -34,7 +35,7 @@ function articleTemplate(object) {
             </ul>`
 }
 
-function toggleTab(object, index) {
+function toggleTab(index) {
     currentTab.classList.remove("tab_active")
     currentTab = domTabs[index]
     currentTab.classList.add("tab_active")
