@@ -1,28 +1,37 @@
-
-// Setter opp tabs
-document.getElementsByTagName("ul")[0].innerHTML = resources.map(e => {
-    return  `<li class="tab">${e.category}</li>`
-}).join('')
-
-const domArticle = document.getElementsByTagName("article")[0]
-const domTabs = document.querySelectorAll(".tab")
 let currentTab;
 
-// Instansierer tab ved innlastning
-toggleTabs(domTabs[0])
-domArticle.innerHTML = getResource(resources, currentTab.textContent);
+try {
+    // Setter opp skriver ut tabs
+    document.getElementsByTagName("ul")[0].innerHTML = resources.map(e => {
+        return  `<li class="tab">${e.category}</li>`
+    }).join('')
 
-console.log(typeof currentTab)
+    instansiateContent()
+}
 
-// Setter opp eventlistner for hver tab
-domTabs.forEach((tab) => {
-    tab.addEventListener("click", event => {
-        toggleTabs(tab);
-        domArticle.innerHTML = getResource(resources, currentTab.textContent)
+catch(error) {
+    console.log(error)
+    document.getElementsByTagName("ul")[0].innerHTML = "<li class='tab'>Error</li>"
+    document.getElementsByTagName("article")[0].innerHTML = `<p>Error, kunne ikke laste inn eksterne ressurser</p><p>${error.message}</p>`
+}
+
+function instansiateContent() {
+
+    const domArticle = document.getElementsByTagName("article")[0]
+    const domTabs = document.querySelectorAll(".tab")
+
+    // Instansierer tab ved innlastning
+    toggleTabs(domTabs[0])
+    domArticle.innerHTML = getResource(resources, currentTab.textContent);
+
+    // Setter opp eventlistner for hver tab
+    domTabs.forEach((tab) => {
+        tab.addEventListener("click", event => {
+            toggleTabs(tab);
+            domArticle.innerHTML = getResource(resources, currentTab.textContent)
+        })
     })
-})
-
-console.log(typeof resources)
+}
 
 // Sjekker først om currentTab holder et objekt og fjerner det
 // Setter nytt aktivt objekt
