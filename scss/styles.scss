@@ -8,9 +8,7 @@ $primary-48-clr:  #58699D;
 $primary-90-clr: #E1E5EE;
 $white-clr: #ffffff;
 
-// SPACING
-
-html, body, ul {
+html, body {
     margin: 0;
     padding: 0;
 }
@@ -18,21 +16,33 @@ html, body, ul {
 body {
     font-family: $mont-font;
     background-color: $primary-90-clr;
-    max-width: 800px;
+    position: relative;
+    min-height: 100vh;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+section {
     width: 100%;
-    height: 100vh;
-    margin: 0 auto;
+    max-width: 800px;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 nav {
     ul {
         display: flex;
-        gap: 1rem;
+        gap: 0.8rem;
+        margin: 0;
+        padding: 0;
     }
     li {
         list-style-type: none;
-        padding: 10px 0;
-        font-weight: 600;
+        padding: 1.2rem;
+        font-weight: 700;
         background-color: $primary-clr;
         color: $white-clr;
         text-align: center;
@@ -43,10 +53,32 @@ nav {
 
 article {
     background-color: $white-clr;
-    padding: 1rem;
+    padding: 2.2rem 3rem;
+
+    h2 {
+        color: $primary-clr;
+    }
 }
 
 .tab_active {
     background-color: $white-clr;
     color: $primary-clr;
+}
+
+@media only screen and (max-width: 900px) {
+
+    section {
+        max-width: 500px;
+    }
+
+    nav {
+        ul {
+            flex-wrap: wrap; 
+            gap: 0.5rem;
+        }
+    }
+
+    article {
+        padding: 1rem 2rem;
+    }
 }
