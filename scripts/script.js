@@ -20,7 +20,7 @@ function instansiateContent() {
     const domArticle = document.getElementsByTagName("article")[0]
     const domTabs = document.querySelectorAll(".tab")
 
-    // Instansierer tab ved innlastning
+    // Instansierer første ressurs ved innlastning
     toggleTabs(domTabs[0])
     domArticle.innerHTML = getResource(resources, currentTab.textContent);
 
